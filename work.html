@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#26211b">
+  <svg viewBox="0 0 120 56" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="56" fill="#26211b"/>
+    <circle cx="18" cy="18" r="9" fill="#d99a5b" transform="rotate(-8 18 18)"/>
+    <text x="15" y="22" font-family="sans-serif" font-weight="800" font-size="11" fill="#26211b">B</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    [data-theme="dark"] {
+      --bg: oklch(0.15 0.01 250); --bg-deep: oklch(0.11 0.008 250); --surface: oklch(0.19 0.012 250);
+      --text-primary: oklch(0.96 0.004 250); --text-body: oklch(0.75 0.01 250); --text-muted: oklch(0.68 0.014 250);
+      --text-faint: oklch(0.5 0.012 250); --text-soft: oklch(0.85 0.006 250);
+      --accent: oklch(0.75 0.12 230); --accent-hover: oklch(0.82 0.1 230); --link-hover: oklch(0.85 0.09 230);
+      --line-08: oklch(1 0 0 / 0.08); --line-10: oklch(1 0 0 / 0.1); --line-14: oklch(1 0 0 / 0.14); --line-16: oklch(1 0 0 / 0.16); --line-20: oklch(1 0 0 / 0.2);
+      --accent-soft: oklch(0.75 0.12 230 / 0.13); --accent-ring: oklch(0.75 0.12 230 / 0.42); --shadow: oklch(0 0 0 / 0.4);
+    }
+    [data-theme="light"] {
+      --bg: oklch(0.98 0.004 250); --bg-deep: oklch(0.94 0.006 250); --surface: oklch(0.93 0.008 250);
+      --text-primary: oklch(0.18 0.01 250); --text-body: oklch(0.32 0.012 250); --text-muted: oklch(0.45 0.014 250);
+      --text-faint: oklch(0.55 0.012 250); --text-soft: oklch(0.35 0.01 250);
+      --accent: oklch(0.52 0.15 230); --accent-hover: oklch(0.46 0.15 230); --link-hover: oklch(0.42 0.15 230);
+      --line-08: oklch(0 0 0 / 0.08); --line-10: oklch(0 0 0 / 0.1); --line-14: oklch(0 0 0 / 0.14); --line-16: oklch(0 0 0 / 0.18); --line-20: oklch(0 0 0 / 0.22);
+      --accent-soft: oklch(0.52 0.15 230 / 0.12); --accent-ring: oklch(0.52 0.15 230 / 0.4); --shadow: oklch(0 0 0 / 0.15);
+    }
+    body { margin: 0; background: var(--bg); transition: background-color 0.25s ease; }
+    * { box-sizing: border-box; }
+    a { color: var(--accent); }
+    a:hover { color: var(--link-hover); }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes menuSlide { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes driftA { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,-30px) scale(1.12); } }
+    @keyframes driftB { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px,30px) scale(1.06); } }
+  </style>
+</helmet>
+<div data-theme="{{ theme }}" style="background: var(--bg); font-family: 'Public Sans', sans-serif; min-height: 100vh; transition: background-color 0.25s ease; overflow-x: hidden;">
+
+  <nav style="max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: clamp(20px, 4vw, 32px) clamp(20px, 6vw, 64px); position: relative;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0;">
+      <span style="width: 36px; height: 36px; border-radius: 11px; background: var(--accent); display: flex; align-items: center; justify-content: center; transform: rotate(-8deg); flex-shrink: 0;">
+        <span style="font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 18px; color: var(--bg); display: block; transform: rotate(8deg);">B</span>
+      </span>
+      <span style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; color: var(--text-primary);">BALAJI</span>
+    </a>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; align-items: center; gap: 32px;">
+        <a href="about.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500;">About</a>
+        <a href="experience.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500;">Experience</a>
+        <a href="work.html" style="color: var(--text-primary); text-decoration: none; font-size: 14px; font-weight: 600;">Work</a>
+        <a href="index.html#contact" style="color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500;">Contact</a>
+        <a href="assets/balaji-reddy-resume.pdf" download="Balaji-Reddy-Resume.pdf" style="color: var(--text-primary); text-decoration: none; font-size: 13px; font-weight: 600; border: 1px solid var(--line-16); padding: 10px 22px; border-radius: 999px;" style-hover="border-color: var(--accent); color: var(--accent);">Download CV</a>
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle color theme" style="position: relative; width: 44px; height: 24px; border-radius: 999px; background: var(--line-16); border: none; cursor: pointer; padding: 0; flex-shrink: 0;">
+          <span style="position: absolute; top: 3px; left: {{ knobLeft }}; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); transition: left 0.2s ease; display: block;"></span>
+        </button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle color theme" style="position: relative; width: 48px; height: 28px; border-radius: 999px; background: var(--line-16); border: none; cursor: pointer; padding: 0; flex-shrink: 0;">
+          <span style="position: absolute; top: 3px; left: {{ knobLeft }}; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); transition: left 0.2s ease; display: block;"></span>
+        </button>
+        <button onClick="{{ toggleMobileMenu }}" aria-label="Toggle menu" style="width: 44px; height: 44px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line-14); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; flex-shrink: 0;">
+          <span style="width: 16px; height: 1.5px; background: var(--text-primary); display: block;"></span>
+          <span style="width: 16px; height: 1.5px; background: var(--text-primary); display: block;"></span>
+          <span style="width: 16px; height: 1.5px; background: var(--text-primary); display: block;"></span>
+        </button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; top: 100%; left: clamp(20px, 6vw, 64px); right: clamp(20px, 6vw, 64px); margin-top: 10px; background: var(--surface); border: 1px solid var(--line-14); border-radius: 16px; padding: 10px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 16px 40px var(--shadow); z-index: 60; animation: menuSlide 0.2s ease both;">
+        <a href="about.html" onClick="{{ closeMobileMenu }}" style="color: var(--text-primary); text-decoration: none; font-size: 15px; font-weight: 500; padding: 14px 12px; border-radius: 10px;">About</a>
+        <a href="experience.html" onClick="{{ closeMobileMenu }}" style="color: var(--text-primary); text-decoration: none; font-size: 15px; font-weight: 500; padding: 14px 12px; border-radius: 10px;">Experience</a>
+        <a href="work.html" onClick="{{ closeMobileMenu }}" style="color: var(--accent); text-decoration: none; font-size: 15px; font-weight: 600; padding: 14px 12px; border-radius: 10px;">Work</a>
+        <a href="index.html#contact" onClick="{{ closeMobileMenu }}" style="color: var(--text-primary); text-decoration: none; font-size: 15px; font-weight: 500; padding: 14px 12px; border-radius: 10px;">Contact</a>
+        <a href="assets/balaji-reddy-resume.pdf" download="Balaji-Reddy-Resume.pdf" style="color: var(--bg); text-decoration: none; font-size: 14px; font-weight: 600; padding: 14px 12px; border-radius: 10px; background: var(--accent); text-align: center; margin-top: 6px;">Download CV</a>
+      </div>
+    </sc-if>
+  </nav>
+
+  <header style="max-width: 1280px; margin: 0 auto; padding: clamp(24px, 5vw, 40px) clamp(20px, 6vw, 64px) 0;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 24px; animation: fadeInUp 0.6s ease-out both;">
+      <span style="width: 6px; height: 6px; border-radius: 999px; background: var(--accent); display: inline-block;"></span>
+      <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase;">Selected Work</span>
+    </div>
+    <h1 style="font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 84px); line-height: 1.02; letter-spacing: -0.02em; color: var(--text-primary); margin: 0 0 20px; animation: fadeInUp 0.7s ease-out 0.05s both;">Case Studies</h1>
+    <p style="font-size: 18px; color: var(--text-muted); margin: 0 0 clamp(48px,9vw,80px); max-width: 640px; animation: fadeInUp 0.7s ease-out 0.1s both;">Case studies from telecom and healthcare — from research through shipped product.</p>
+  </header>
+
+  <section style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 6vw, 64px) 120px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 32px;">
+      <div style="position: relative;">
+        <div style="position: absolute; inset: -18px; background: var(--accent); opacity: 0.22; filter: blur(36px); border-radius: 24px; animation: driftA 15s ease-in-out infinite; pointer-events: none; z-index: 0;"></div>
+        <div style="position: relative; z-index: 1; background: var(--surface); border-radius: 16px; overflow: hidden; border: 1px solid var(--line-08);">
+          <div style="height: clamp(220px, 32vw, 320px); overflow: hidden;">
+            <img src="assets/dailydent-cover.jpg" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: saturate(0.85) brightness(0.92);">
+          </div>
+          <div style="padding: 32px;">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+              <span style="font-size: 11px; font-weight: 500; color: var(--accent); background: var(--accent-soft); padding: 5px 12px; border-radius: 999px;">Healthcare</span>
+              <span style="font-size: 11px; font-weight: 500; color: var(--accent); background: var(--accent-soft); padding: 5px 12px; border-radius: 999px;">Mobile</span>
+            </div>
+            <h3 style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 26px; color: var(--text-primary); margin: 0 0 12px; transition: color 0.2s ease;" style-hover="color: var(--accent);">DailyDent</h3>
+            <p style="font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0 0 20px;">A patient-facing treatment app that turns dental care plans into something people actually understand and follow through on.</p>
+            <a href="dailydent-case-study.html" style="color: var(--text-primary); text-decoration: none; font-weight: 600; font-size: 14px;">View case study →</a>
+          </div>
+        </div>
+      </div>
+      <div style="position: relative;">
+        <div style="position: absolute; inset: -18px; background: var(--accent); opacity: 0.22; filter: blur(36px); border-radius: 24px; animation: driftB 15s ease-in-out infinite; pointer-events: none; z-index: 0;"></div>
+        <div style="position: relative; z-index: 1; background: var(--surface); border-radius: 16px; overflow: hidden; border: 1px solid var(--line-08);">
+          <div style="height: clamp(220px, 32vw, 320px); overflow: hidden;">
+            <img src="assets/mobile-activation-cover.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: saturate(0.85) brightness(0.92);">
+          </div>
+          <div style="padding: 32px;">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+              <span style="font-size: 11px; font-weight: 500; color: var(--accent); background: var(--accent-soft); padding: 5px 12px; border-radius: 999px;">Telecom</span>
+              <span style="font-size: 11px; font-weight: 500; color: var(--accent); background: var(--accent-soft); padding: 5px 12px; border-radius: 999px;">Mobile</span>
+            </div>
+            <h3 style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 26px; color: var(--text-primary); margin: 0 0 12px; transition: color 0.2s ease;" style-hover="color: var(--accent);">Next Gen Quick Activation</h3>
+            <p style="font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0 0 20px;">Redesigning Verizon's device-activation flow down to the steps that matter — cutting drop-off and speeding up onboarding.</p>
+            <a href="quick-activation-case-study.html" style="color: var(--text-primary); text-decoration: none; font-weight: 600; font-size: 14px;">View case study →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 6vw, 64px) 60px; display: flex; flex-wrap: wrap; gap: 24px;">
+    <a href="about.html" style="background: var(--surface); border-radius: 16px; padding: 36px; text-decoration: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex: 1 1 320px;" style-hover="background: var(--accent-soft);">
+      <div>
+        <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 22px; color: var(--text-primary);">About</div>
+        <div style="font-size: 14px; color: var(--text-muted); margin-top: 8px;">Philosophy, background, and how I work.</div>
+      </div>
+      <span style="font-size: 22px; color: var(--accent); flex-shrink: 0;">→</span>
+    </a>
+    <a href="experience.html" style="background: var(--surface); border-radius: 16px; padding: 36px; text-decoration: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex: 1 1 320px;" style-hover="background: var(--accent-soft);">
+      <div>
+        <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 22px; color: var(--text-primary);">Experience &amp; Skills</div>
+        <div style="font-size: 14px; color: var(--text-muted); margin-top: 8px;">12+ years across five companies.</div>
+      </div>
+      <span style="font-size: 22px; color: var(--accent); flex-shrink: 0;">→</span>
+    </a>
+  </section>
+
+  <section style="max-width: 1280px; margin: 0 auto; padding: 40px clamp(20px, 6vw, 64px) 120px; display: flex; justify-content: flex-end; border-top: 1px solid var(--line-10);">
+    <a href="index.html#contact" style="color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500;">Get in touch →</a>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: 'dark', isMobile: false, mobileMenuOpen: false };
+  componentDidMount() {
+    const saved = localStorage.getItem('balaji-portfolio-theme');
+    if (saved === 'light' || saved === 'dark') this.setState({ theme: saved });
+    this._onResize = () => {
+      const mobile = window.innerWidth < 880;
+      if (mobile !== this.state.isMobile) this.setState(s => ({ isMobile: mobile, mobileMenuOpen: mobile ? s.mobileMenuOpen : false }));
+    };
+    this._onResize();
+    window.addEventListener('resize', this._onResize, { passive: true });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
+  renderVals() {
+    return {
+      theme: this.state.theme,
+      knobLeft: this.state.theme === 'light' ? '23px' : '3px',
+      toggleTheme: () => {
+        const next = this.state.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('balaji-portfolio-theme', next);
+        this.setState({ theme: next });
+      },
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMobileMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      closeMobileMenu: () => this.setState({ mobileMenuOpen: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

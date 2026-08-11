@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    [data-theme="dark"] {
+      --bg: oklch(0.15 0.01 250); --bg-deep: oklch(0.11 0.008 250); --surface: oklch(0.19 0.012 250);
+      --text-primary: oklch(0.96 0.004 250); --text-body: oklch(0.75 0.01 250); --text-muted: oklch(0.68 0.014 250);
+      --text-faint: oklch(0.5 0.012 250); --text-soft: oklch(0.85 0.006 250);
+      --accent: oklch(0.75 0.12 230); --accent-hover: oklch(0.82 0.1 230); --link-hover: oklch(0.85 0.09 230);
+      --line-08: oklch(1 0 0 / 0.08); --line-10: oklch(1 0 0 / 0.1); --line-14: oklch(1 0 0 / 0.14); --line-16: oklch(1 0 0 / 0.16); --line-20: oklch(1 0 0 / 0.2);
+      --accent-soft: oklch(0.75 0.12 230 / 0.13); --accent-ring: oklch(0.75 0.12 230 / 0.42); --shadow: oklch(0 0 0 / 0.4);
+    }
+    [data-theme="light"] {
+      --bg: oklch(0.98 0.004 250); --bg-deep: oklch(0.94 0.006 250); --surface: oklch(0.93 0.008 250);
+      --text-primary: oklch(0.18 0.01 250); --text-body: oklch(0.32 0.012 250); --text-muted: oklch(0.45 0.014 250);
+      --text-faint: oklch(0.55 0.012 250); --text-soft: oklch(0.35 0.01 250);
+      --accent: oklch(0.52 0.15 230); --accent-hover: oklch(0.46 0.15 230); --link-hover: oklch(0.42 0.15 230);
+      --line-08: oklch(0 0 0 / 0.08); --line-10: oklch(0 0 0 / 0.1); --line-14: oklch(0 0 0 / 0.14); --line-16: oklch(0 0 0 / 0.18); --line-20: oklch(0 0 0 / 0.22);
+      --accent-soft: oklch(0.52 0.15 230 / 0.12); --accent-ring: oklch(0.52 0.15 230 / 0.4); --shadow: oklch(0 0 0 / 0.15);
+    }
+    body { margin: 0; background: var(--bg); transition: background-color 0.25s ease; }
+    * { box-sizing: border-box; }
+    a { color: var(--accent); }
+    a:hover { color: var(--link-hover); }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes menuSlide { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</helmet>
+<div data-theme="{{ theme }}" style="background: var(--bg); font-family: 'Public Sans', sans-serif; min-height: 100vh; transition: background-color 0.25s ease; overflow-x: hidden;">
+
+  <nav style="max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: clamp(20px, 4vw, 32px) clamp(20px, 6vw, 64px); position: relative;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0;">
+      <span style="width: 36px; height: 36px; border-radius: 11px; background: var(--accent); display: flex; align-items: center; justify-content: center; transform: rotate(-8deg); flex-shrink: 0;">
+        <span style="font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 18px; color: var(--bg); display: block; transform: rotate(8deg);">B</span>
+      </span>
+      <span style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; color: var(--text-primary);">BALAJI</span>
+    </a>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; align-items: center; gap: 32px;">
+        <a href="about.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500;">About</a>
+        <a href="experience.html" style="color: var(--text-primary); text-decoration: none; font-size: 14px; font-weight: 600;">Experience</a>
+        <a href="work.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500;">Work</a>
+        <a href="index.html#contact" style="color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500;">Contact</a>
+        <a href="assets/balaji-reddy-resume.pdf" download="Balaji-Reddy-Resume.pdf" style="color: var(--text-primary); text-decoration: none; font-size: 13px; font-weight: 600; border: 1px solid var(--line-16); padding: 10px 22px; border-radius: 999px;" style-hover="border-color: var(--accent); color: var(--accent);">Download CV</a>
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle color theme" style="position: relative; width: 44px; height: 24px; border-radius: 999px; background: var(--line-16); border: none; cursor: pointer; padding: 0; flex-shrink: 0;">
+          <span style="position: absolute; top: 3px; left: {{ knobLeft }}; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); transition: left 0.2s ease; display: block;"></span>
+        </button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle color theme" style="position: relative; width: 48px; height: 28px; border-radius: 999px; background: var(--line-16); border: none; cursor: pointer; padding: 0; flex-shrink: 0;">
+          <span style="position: absolute; top: 3px; left: {{ knobLeft }}; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); transition: left 0.2s ease; display: block;"></span>
+        </button>
+        <button onClick="{{ toggleMobileMenu }}" aria-label="Toggle menu" style="width: 44px; height: 44px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line-14); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; flex-shrink: 0;">
+          <span style="width: 16px; height: 1.5px; background: var(--text-primary); display: block;"></span>
+          <span style="width: 16px; height: 1.5px; background: var(--text-primary); display: block;"></span>
+          <span style="width: 16px; height: 1.5px; background: var(--text-primary); display: block;"></span>
+        </button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; top: 100%; left: clamp(20px, 6vw, 64px); right: clamp(20px, 6vw, 64px); margin-top: 10px; background: var(--surface); border: 1px solid var(--line-14); border-radius: 16px; padding: 10px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 16px 40px var(--shadow); z-index: 60; animation: menuSlide 0.2s ease both;">
+        <a href="about.html" onClick="{{ closeMobileMenu }}" style="color: var(--text-primary); text-decoration: none; font-size: 15px; font-weight: 500; padding: 14px 12px; border-radius: 10px;">About</a>
+        <a href="experience.html" onClick="{{ closeMobileMenu }}" style="color: var(--accent); text-decoration: none; font-size: 15px; font-weight: 600; padding: 14px 12px; border-radius: 10px;">Experience</a>
+        <a href="work.html" onClick="{{ closeMobileMenu }}" style="color: var(--text-primary); text-decoration: none; font-size: 15px; font-weight: 500; padding: 14px 12px; border-radius: 10px;">Work</a>
+        <a href="index.html#contact" onClick="{{ closeMobileMenu }}" style="color: var(--text-primary); text-decoration: none; font-size: 15px; font-weight: 500; padding: 14px 12px; border-radius: 10px;">Contact</a>
+        <a href="assets/balaji-reddy-resume.pdf" download="Balaji-Reddy-Resume.pdf" style="color: var(--bg); text-decoration: none; font-size: 14px; font-weight: 600; padding: 14px 12px; border-radius: 10px; background: var(--accent); text-align: center; margin-top: 6px;">Download CV</a>
+      </div>
+    </sc-if>
+  </nav>
+
+  <header style="max-width: 1280px; margin: 0 auto; padding: clamp(24px, 5vw, 40px) clamp(20px, 6vw, 64px) 0;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 24px; animation: fadeInUp 0.6s ease-out both;">
+      <span style="width: 6px; height: 6px; border-radius: 999px; background: var(--accent); display: inline-block;"></span>
+      <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase;">Experience</span>
+    </div>
+    <h1 style="font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 84px); line-height: 1.02; letter-spacing: -0.02em; color: var(--text-primary); margin: 0 0 20px; animation: fadeInUp 0.7s ease-out 0.05s both;">Where the work happened.</h1>
+    <p style="font-size: 18px; color: var(--text-muted); margin: 0 0 clamp(40px,8vw,72px); animation: fadeInUp 0.7s ease-out 0.1s both;">12+ years across five companies, from enterprise software to telecom.</p>
+  </header>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 0 clamp(20px, 6vw, 64px) 100px;">
+
+    <div style="position: relative; padding-left: clamp(36px,10vw,52px); padding-bottom: 40px;">
+      <div style="position: absolute; left: 8px; top: 26px; bottom: 0; width: 2px; background: var(--line-10);"></div>
+      <div style="position: absolute; left: 0; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--line-14);"></div>
+      <div style="background: var(--surface); border-radius: 16px; padding: clamp(20px,5vw,30px) clamp(18px,5vw,32px);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+              <image-slot id="logo-verizon" shape="rounded" radius="10" style="width: 56px; height: 56px; flex-shrink: 0;" placeholder="Logo" src="assets/logo-verizon.png"></image-slot>
+              <h3 style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 20px; color: var(--text-primary); margin: 0;">Senior Experience Designer II</h3>
+            </div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Verizon &middot; Hyderabad (Hybrid)</div>
+          </div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 6px 14px; border-radius: 999px; white-space: nowrap;">Oct 2024 &ndash; Jul 2026</div>
+        </div>
+        <ul style="margin: 0; padding-left: 18px; color: oklch(0.75 0.01 250); font-size: 14.5px; line-height: 1.8;">
+          <li>Led AI-enhanced design for device activation &amp; smart setup — 25% increase in product adoption</li>
+          <li>Improved onboarding efficiency by 30%; reduced user drop-off by 20%</li>
+          <li>Mentored 3 junior designers, improving team productivity by 15%</li>
+          <li>2025 Design Excellence Award, Verizon Ideathon</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="position: relative; padding-left: clamp(36px,10vw,52px); padding-bottom: 40px;">
+      <div style="position: absolute; left: 8px; top: 26px; bottom: 0; width: 2px; background: var(--line-10);"></div>
+      <div style="position: absolute; left: 0; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--line-14);"></div>
+      <div style="background: var(--surface); border-radius: 16px; padding: clamp(20px,5vw,30px) clamp(18px,5vw,32px);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+              <image-slot id="logo-capgemini" shape="rounded" radius="10" style="width: 56px; height: 56px; flex-shrink: 0; background: #fff;" placeholder="Logo" fit="contain" src="assets/logo-capgemini.png"></image-slot>
+              <h3 style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 20px; color: var(--text-primary); margin: 0;">UX Design Manager</h3>
+            </div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Capgemini (Verizon account) &middot; Hyderabad</div>
+          </div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 6px 14px; border-radius: 999px; white-space: nowrap;">Sep 2021 &ndash; Oct 2024</div>
+        </div>
+        <ul style="margin: 0; padding-left: 18px; color: oklch(0.75 0.01 250); font-size: 14.5px; line-height: 1.8;">
+          <li>Redesigned web &amp; responsive mobile prepaid portfolio experiences for Verizon</li>
+          <li>+30% engagement/retention, +50% mobile traffic, &minus;10% error rate</li>
+          <li>Introduced a new framework for Verizon's loyalty program, +20% delivery speed</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="position: relative; padding-left: clamp(36px,10vw,52px); padding-bottom: 8px;">
+      <div style="position: absolute; left: 0; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--line-14);"></div>
+      <div style="background: var(--surface); border-radius: 16px; padding: clamp(20px,5vw,30px) clamp(18px,5vw,32px);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+              <image-slot id="logo-pega" shape="rounded" radius="10" style="width: 56px; height: 56px; flex-shrink: 0; background: #fff;" placeholder="Logo" fit="contain" src="assets/logo-pega.png"></image-slot>
+              <h3 style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 20px; color: var(--text-primary); margin: 0;">Senior UX Designer</h3>
+            </div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Pegasystems &middot; Hyderabad</div>
+          </div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 6px 14px; border-radius: 999px; white-space: nowrap;">Jan 2020 &ndash; Sep 2021</div>
+        </div>
+        <ul style="margin: 0; padding-left: 18px; color: oklch(0.75 0.01 250); font-size: 14.5px; line-height: 1.8;">
+          <li>Led end-to-end UX strategy for enterprise product lines, mentoring junior designers</li>
+          <li>Simplified complex enterprise workflows into intuitive experiences</li>
+          <li>Improved design handoff process — 20% faster project completion</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top: 32px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-10);">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 16px clamp(12px,4vw,24px); background: var(--surface); font-size: 12px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.05em;">
+        <div>Company</div><div>Role</div><div>Dates</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 16px clamp(12px,4vw,24px); font-size: 14px; color: var(--text-soft); border-top: 1px solid var(--line-08);">
+        <div>Avineon</div><div>Senior UI Graphic Designer</div><div>Jun 2018 &ndash; Dec 2019</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 16px clamp(12px,4vw,24px); font-size: 14px; color: var(--text-soft); border-top: 1px solid var(--line-08);">
+        <div>Innovapptive Inc</div><div>Senior UI/UX Designer</div><div>Nov 2013 &ndash; Jun 2018</div>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 8px; margin: 80px 0 28px;">
+      <span style="width: 6px; height: 6px; border-radius: 999px; background: var(--accent); display: inline-block;"></span>
+      <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase;">Skills</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+      <div style="background: var(--surface); border-radius: 16px; padding: 24px;">
+        <div style="color: var(--text-faint); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">Research &amp; Strategy</div>
+        <div style="color: var(--text-soft); font-size: 13.5px; line-height: 2;">UX Research &amp; Usability Testing<br>Information Architecture<br>Design Thinking<br>A/B Testing</div>
+      </div>
+      <div style="background: var(--surface); border-radius: 16px; padding: 24px;">
+        <div style="color: var(--text-faint); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">Craft &amp; Systems</div>
+        <div style="color: var(--text-soft); font-size: 13.5px; line-height: 2;">Wireframing &amp; Prototyping<br>Interaction Design<br>Design Systems<br>Accessibility (WCAG 2.1)</div>
+      </div>
+      <div style="background: var(--surface); border-radius: 16px; padding: 24px;">
+        <div style="color: var(--text-faint); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">Leadership &amp; Process</div>
+        <div style="color: var(--text-soft); font-size: 13.5px; line-height: 2;">Cross-Functional Collaboration<br>Stakeholder Management<br>Agile/Scrum<br>Mentorship &amp; Team Leadership</div>
+      </div>
+      <div style="background: var(--surface); border-radius: 16px; padding: 24px;">
+        <div style="color: var(--text-faint); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">Tools</div>
+        <div style="color: var(--text-soft); font-size: 13.5px; line-height: 2;">Figma, Adobe XD, Photoshop<br>Illustrator, After Effects<br>Premiere Pro<br>Claude, Gemini, Copilot</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 40px clamp(20px, 6vw, 64px) 120px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; border-top: 1px solid var(--line-10);">
+    <a href="work.html" style="color: var(--text-primary); text-decoration: none; font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 20px;">See the work &rarr;</a>
+    <a href="index.html#contact" style="color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500;">Get in touch &rarr;</a>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: 'dark', isMobile: false, mobileMenuOpen: false };
+  componentDidMount() {
+    const saved = localStorage.getItem('balaji-portfolio-theme');
+    if (saved === 'light' || saved === 'dark') this.setState({ theme: saved });
+    this._onResize = () => {
+      const mobile = window.innerWidth < 880;
+      if (mobile !== this.state.isMobile) this.setState(s => ({ isMobile: mobile, mobileMenuOpen: mobile ? s.mobileMenuOpen : false }));
+    };
+    this._onResize();
+    window.addEventListener('resize', this._onResize, { passive: true });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
+  renderVals() {
+    return {
+      theme: this.state.theme,
+      knobLeft: this.state.theme === 'light' ? '23px' : '3px',
+      toggleTheme: () => {
+        const next = this.state.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('balaji-portfolio-theme', next);
+        this.setState({ theme: next });
+      },
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMobileMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      closeMobileMenu: () => this.setState({ mobileMenuOpen: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
