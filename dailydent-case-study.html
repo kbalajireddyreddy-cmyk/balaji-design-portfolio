@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
     [data-theme="dark"] {
@@ -32,7 +32,6 @@
     * { box-sizing: border-box; }
     a { color: var(--accent); }
     a:hover { color: var(--link-hover); }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </helmet>
 <div data-theme="{{ theme }}" style="background: var(--bg); font-family: 'Public Sans', sans-serif; min-height: 100vh; transition: background-color 0.25s ease; overflow-x: hidden;">
@@ -42,9 +41,9 @@
       <div style="display: flex; align-items: center; gap: 20px;">
         <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
           <span style="width: 36px; height: 36px; border-radius: 11px; background: var(--accent); display: flex; align-items: center; justify-content: center; transform: rotate(-8deg); flex-shrink: 0;">
-            <span style="font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 18px; color: var(--bg); display: block; transform: rotate(8deg);">B</span>
+            <span style="font-family: 'Public Sans', sans-serif; font-weight: 800; font-size: 18px; color: var(--bg); display: block; transform: rotate(8deg);">B</span>
           </span>
-          <span style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; color: var(--text-primary);">BALAJI</span>
+          <span style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; color: var(--text-primary);">BALAJI</span>
         </a>
         <button onClick="{{ toggleTheme }}" aria-label="Toggle color theme" style="position: relative; width: 44px; height: 24px; border-radius: 999px; background: var(--line-16); border: none; cursor: pointer; padding: 0; flex-shrink: 0;">
           <span style="position: absolute; top: 3px; left: {{ knobLeft }}; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); transition: left 0.2s ease; display: block;"></span>
@@ -54,13 +53,13 @@
 
     <div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: center; padding-top: 24px;">
       <div style="flex: 1 1 380px;">
-        <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px;">Case Study &middot; 01</div>
-        <h1 style="font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(36px, 4.5vw, 58px); line-height: 1.02; letter-spacing: -0.02em; color: var(--text-primary); margin: 0 0 20px;">DailyDent</h1>
-        <p style="font-size: 17px; line-height: 1.6; color: var(--text-muted); margin: 0 0 28px;">Patient engagement for dental treatments — helping people understand their care and follow through on it.</p>
-        <a href="assets/dailydent-case-study.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 600;">View full case study deck &rarr;</a>
+        <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px;">Case Study &middot; 01 &nbsp;&middot;&nbsp; Dental Treatment</div>
+        <h1 style="font-family: 'Public Sans', sans-serif; font-weight: 800; font-size: clamp(36px, 4.5vw, 58px); line-height: 1.02; letter-spacing: -0.02em; color: var(--text-primary); margin: 0 0 20px;">DailyDent</h1>
+        <p style="font-size: 17px; line-height: 1.6; color: var(--text-muted); margin: 0 0 28px;">Patient engagement for dental treatments &mdash; helping people understand their care and follow through on it.</p>
+        <button onClick="{{ openDeckModal }}" style="display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--bg); border: none; cursor: pointer; font-size: 14px; font-weight: 600; padding: 14px 26px; border-radius: 999px; font-family: 'Public Sans', sans-serif;" style-hover="background: var(--accent-hover);">View full case study deck &rarr;</button>
       </div>
       <div style="border-radius: 14px; overflow: hidden; height: clamp(220px, 45vw, 340px); flex: 1 1 380px;">
-        <img src="assets/dailydent-cover.jpg" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: saturate(0.85) brightness(0.92);">
+        <img src="assets/dailydent-cover.jpg" alt="DailyDent case study cover" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: saturate(0.85) brightness(0.92);">
       </div>
     </div>
 
@@ -72,151 +71,366 @@
     </div>
 
     <div style="margin-top: clamp(56px,10vw,96px);">
-      <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">The Challenge</div>
-      <p style="font-size: 18px; line-height: 1.75; color: var(--text-body); margin: 0 0 32px; max-width: 780px;">Dentists and patients weren't communicating well. Patients often didn't understand their treatment plans, which made them hesitant to move forward — and made it harder to stick with care after a procedure. That gap showed up as lower treatment compliance, more complications, and less satisfied patients.</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
-        <div style="background: var(--surface); border-radius: 12px; padding: 20px; font-size: 14px; color: var(--text-soft); line-height: 1.5;">Help patients understand their treatment</div>
-        <div style="background: var(--surface); border-radius: 12px; padding: 20px; font-size: 14px; color: var(--text-soft); line-height: 1.5;">Enable real-time patient&ndash;dentist communication</div>
-        <div style="background: var(--surface); border-radius: 12px; padding: 20px; font-size: 14px; color: var(--text-soft); line-height: 1.5;">Give dentists better planning tools</div>
-        <div style="background: var(--surface); border-radius: 12px; padding: 20px; font-size: 14px; color: var(--text-soft); line-height: 1.5;">Improve post-treatment compliance</div>
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Problem Statement</div>
+      <p style="font-size: 18px; line-height: 1.75; color: var(--text-body); margin: 0 0 32px; max-width: 820px;">Dentists and patients lack a strong channel for talking to each other. Patients hesitate over treatment because they don't understand the procedures; dentists struggle to explain plans and their complexities. Care after treatment suffers as a result &mdash; lower treatment compliance, higher risk of complications, and less satisfied patients.</p>
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin: 40px 0 18px;">Objectives &amp; Goals</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+        <div style="background: var(--surface); border-radius: 12px; padding: 22px; font-size: 14.5px; color: var(--text-soft); line-height: 1.5;">Enhance patient awareness and education</div>
+        <div style="background: var(--surface); border-radius: 12px; padding: 22px; font-size: 14.5px; color: var(--text-soft); line-height: 1.5;">Patient&ndash;dentist real-time communication</div>
+        <div style="background: var(--surface); border-radius: 12px; padding: 22px; font-size: 14.5px; color: var(--text-soft); line-height: 1.5;">Treatment planning and collaboration for dentists</div>
+        <div style="background: var(--surface); border-radius: 12px; padding: 22px; font-size: 14.5px; color: var(--text-soft); line-height: 1.5;">Improve post-treatment compliance</div>
       </div>
     </div>
 
     <div style="margin-top: clamp(48px,10vw,80px); padding-top: clamp(32px,7vw,56px); border-top: 1px solid var(--line-10);">
-      <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Process</div>
-      <p style="font-size: 16px; line-height: 1.7; color: var(--text-muted); margin: 0 0 28px; max-width: 720px;">As the only designer on this project, I ran it end to end — competitive research, personas, journey maps, sketches, wireframes, user flows, and final UI.</p>
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">My Role</div>
+      <p style="font-size: 16px; line-height: 1.7; color: var(--text-muted); margin: 0 0 24px; max-width: 760px;">Sole designer across the whole process, responsible for every UX activity and deliverable.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px;">
+        <span style="font-size: 13px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--line-14); padding: 9px 18px; border-radius: 999px;">Competitive analysis</span>
+        <span style="font-size: 13px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--line-14); padding: 9px 18px; border-radius: 999px;">User persona</span>
+        <span style="font-size: 13px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--line-14); padding: 9px 18px; border-radius: 999px;">User journey map</span>
+        <span style="font-size: 13px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--line-14); padding: 9px 18px; border-radius: 999px;">Sketching</span>
+        <span style="font-size: 13px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--line-14); padding: 9px 18px; border-radius: 999px;">Wireframes</span>
+        <span style="font-size: 13px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--line-14); padding: 9px 18px; border-radius: 999px;">User flow</span>
+        <span style="font-size: 13px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--line-14); padding: 9px 18px; border-radius: 999px;">Design</span>
+        <span style="font-size: 13px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--line-14); padding: 9px 18px; border-radius: 999px;">Project documentation</span>
+      </div>
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 18px;">UX Process</div>
       <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <div style="flex: 1 1 120px; background: var(--surface); border-radius: 12px; padding: 18px 20px; text-align: center; font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 14px; color: var(--text-primary);">Discover</div>
-        <div style="flex: 1 1 120px; background: var(--surface); border-radius: 12px; padding: 18px 20px; text-align: center; font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 14px; color: var(--text-primary);">Define</div>
-        <div style="flex: 1 1 120px; background: var(--surface); border-radius: 12px; padding: 18px 20px; text-align: center; font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 14px; color: var(--text-primary);">Ideate</div>
-        <div style="flex: 1 1 120px; background: var(--accent-soft); border: 1px solid var(--accent-ring); border-radius: 12px; padding: 18px 20px; text-align: center; font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 14px; color: var(--accent);">Design</div>
+        <div style="flex: 1 1 130px; background: var(--surface); border-radius: 12px; padding: 18px 20px; text-align: center; font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 14px; color: var(--text-primary);">Discover</div>
+        <div style="flex: 1 1 130px; background: var(--surface); border-radius: 12px; padding: 18px 20px; text-align: center; font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 14px; color: var(--text-primary);">Define</div>
+        <div style="flex: 1 1 130px; background: var(--surface); border-radius: 12px; padding: 18px 20px; text-align: center; font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 14px; color: var(--text-primary);">Ideate</div>
+        <div style="flex: 1 1 130px; background: var(--accent-soft); border: 1px solid var(--accent-ring); border-radius: 12px; padding: 18px 20px; text-align: center; font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 14px; color: var(--accent);">Design</div>
       </div>
     </div>
 
     <div style="margin-top: clamp(48px,10vw,80px); padding-top: clamp(32px,7vw,56px); border-top: 1px solid var(--line-10);">
-      <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Competitive Analysis</div>
-      <p style="font-size: 16px; line-height: 1.7; color: var(--text-muted); margin: 0 0 32px; max-width: 720px;">I looked at three apps patients already use for dental and orthodontic care, to see what worked and what didn't.</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Competitive Analysis</div>
+      <p style="font-size: 16px; line-height: 1.7; color: var(--text-muted); margin: 0 0 32px; max-width: 760px;">Three apps patients and clinicians already use for dental and orthodontic care, examined for what works and what frustrates people.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px;">
         <div style="background: var(--surface); border-radius: 14px; padding: 26px;">
-          <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 16px; color: var(--text-primary);">My Invisalign</div>
-          <div style="font-size: 12px; color: var(--text-faint); margin: 6px 0 14px;">1M+ downloads &middot; 3.6/5.0</div>
-          <p style="font-size: 14px; line-height: 1.6; color: var(--text-soft); margin: 0;">Patients love the wear-time tracker for staying accountable — but many complained the app itself was unstable.</p>
+          <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 17px; color: var(--text-primary);">My Invisalign</div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin: 10px 0 12px;">Tracking</div>
+          <div style="display: flex; gap: 20px; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--line-10);">
+            <div><div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 19px; color: var(--text-primary);">&gt;1M</div><div style="font-size: 11.5px; color: var(--text-faint); margin-top: 2px;">downloads</div></div>
+            <div><div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 19px; color: var(--text-primary);">3.6</div><div style="font-size: 11.5px; color: var(--text-faint); margin-top: 2px;">out of 5.0</div></div>
+          </div>
+          <div style="font-size: 11px; font-weight: 600; color: #6ee7a8; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Works well</div>
+          <p style="font-size: 13.5px; line-height: 1.6; color: var(--text-soft); margin: 0 0 16px;">Patients find aligners comfortable and the wear-time tracker genuinely motivating &mdash; it keeps them accountable to the plan.</p>
+          <div style="font-size: 11px; font-weight: 600; color: #f0a58c; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Falls short</div>
+          <p style="font-size: 13.5px; line-height: 1.6; color: var(--text-soft); margin: 0;">Stability. Users report freezing, unexpected sign-outs, and in bad cases losing photo logs and treatment history.</p>
         </div>
         <div style="background: var(--surface); border-radius: 14px; padding: 26px;">
-          <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 16px; color: var(--text-primary);">DentalMonitoring</div>
-          <div style="font-size: 12px; color: var(--text-faint); margin: 6px 0 14px;">500K+ downloads &middot; 3.2/5.0</div>
-          <p style="font-size: 14px; line-height: 1.6; color: var(--text-soft); margin: 0;">Remote check-ins save patients an office visit, and parents especially like how easily kids can use it on their own.</p>
+          <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 17px; color: var(--text-primary);">DentalMonitoring</div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin: 10px 0 12px;">Remote Ortho</div>
+          <div style="display: flex; gap: 20px; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--line-10);">
+            <div><div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 19px; color: var(--text-primary);">&gt;500K</div><div style="font-size: 11.5px; color: var(--text-faint); margin-top: 2px;">downloads</div></div>
+            <div><div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 19px; color: var(--text-primary);">3.2</div><div style="font-size: 11.5px; color: var(--text-faint); margin-top: 2px;">out of 5.0</div></div>
+          </div>
+          <div style="font-size: 11px; font-weight: 600; color: #6ee7a8; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Works well</div>
+          <p style="font-size: 13.5px; line-height: 1.6; color: var(--text-soft); margin: 0 0 16px;">Praised for convenience &mdash; patients see clear progress from home and skip weekly office visits. Parents find it easy enough for children to use alone.</p>
+          <div style="font-size: 11px; font-weight: 600; color: #f0a58c; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Falls short</div>
+          <p style="font-size: 13.5px; line-height: 1.6; color: var(--text-soft); margin: 0;">Few complaints, though some users hit a learning curve with the physical ScanBox attachment when capturing clear photos.</p>
         </div>
         <div style="background: var(--surface); border-radius: 14px; padding: 26px;">
-          <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 16px; color: var(--text-primary);">DentiCalc</div>
-          <div style="font-size: 12px; color: var(--text-faint); margin: 6px 0 14px;">100K+ downloads &middot; 3.0/5.0</div>
-          <p style="font-size: 14px; line-height: 1.6; color: var(--text-soft); margin: 0;">Its animation library helps dentists explain procedures clearly — though its pricing tools need work.</p>
+          <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 17px; color: var(--text-primary);">DentiCalc</div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin: 10px 0 12px;">Clinical Education</div>
+          <div style="display: flex; gap: 20px; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--line-10);">
+            <div><div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 19px; color: var(--text-primary);">100K+</div><div style="font-size: 11.5px; color: var(--text-faint); margin-top: 2px;">downloads</div></div>
+            <div><div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 19px; color: var(--text-primary);">3.0</div><div style="font-size: 11.5px; color: var(--text-faint); margin-top: 2px;">out of 5.0</div></div>
+          </div>
+          <div style="font-size: 11px; font-weight: 600; color: #6ee7a8; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Works well</div>
+          <p style="font-size: 13.5px; line-height: 1.6; color: var(--text-soft); margin: 0 0 16px;">Dentists rate it highly for patient education and case presentation &mdash; the animation library bridges the knowledge gap and lifts case acceptance.</p>
+          <div style="font-size: 11px; font-weight: 600; color: #f0a58c; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Falls short</div>
+          <p style="font-size: 13.5px; line-height: 1.6; color: var(--text-soft); margin: 0;">Animations sometimes fail to load, and international users want broader currency support and clearer pricing setup.</p>
+        </div>
+      </div>
+
+      <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px;">Feature comparison</div>
+      <div style="border-radius: 14px; overflow: hidden; border: 1px solid var(--line-10);" data-om-raster="true">
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; background: var(--surface); padding: 16px clamp(12px,3vw,22px); font-size: 12px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.05em; gap: 10px;">
+          <div>Feature</div><div>My Invisalign</div><div>DentalMonitoring</div><div>DentiCalc</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; padding: 15px clamp(12px,3vw,22px); font-size: 13.5px; color: var(--text-soft); border-top: 1px solid var(--line-08); gap: 10px;">
+          <div style="color: var(--text-primary); font-weight: 500;">Hardware integration</div><div style="color: var(--text-faint);">&mdash;</div><div>ScanBox mount</div><div style="color: var(--text-faint);">&mdash;</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; padding: 15px clamp(12px,3vw,22px); font-size: 13.5px; color: var(--text-soft); border-top: 1px solid var(--line-08); gap: 10px;">
+          <div style="color: var(--text-primary); font-weight: 500;">AI analytics</div><div style="color: var(--text-faint);">&mdash;</div><div>AI progress reels</div><div style="color: var(--text-faint);">&mdash;</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; padding: 15px clamp(12px,3vw,22px); font-size: 13.5px; color: var(--text-soft); border-top: 1px solid var(--line-08); gap: 10px;">
+          <div style="color: var(--text-primary); font-weight: 500;">Visual progress</div><div>Time-lapse</div><div>Tooth movement</div><div>1000+ animations</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; padding: 15px clamp(12px,3vw,22px); font-size: 13.5px; color: var(--text-soft); border-top: 1px solid var(--line-08); gap: 10px;">
+          <div style="color: var(--text-primary); font-weight: 500;">Doctor messaging</div><div style="color: var(--text-faint);">&mdash;</div><div>Compliance</div><div style="color: var(--text-faint);">&mdash;</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; padding: 15px clamp(12px,3vw,22px); font-size: 13.5px; color: var(--text-soft); border-top: 1px solid var(--line-08); gap: 10px;">
+          <div style="color: var(--text-primary); font-weight: 500;">Gamification</div><div>Wear-time logging</div><div style="color: var(--text-faint);">&mdash;</div><div style="color: var(--text-faint);">&mdash;</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; padding: 15px clamp(12px,3vw,22px); font-size: 13.5px; color: var(--text-soft); border-top: 1px solid var(--line-08); gap: 10px;">
+          <div style="color: var(--text-primary); font-weight: 500;">Financial tools</div><div style="color: var(--text-faint);">&mdash;</div><div style="color: var(--text-faint);">&mdash;</div><div>Pricing calculator</div>
         </div>
       </div>
     </div>
 
     <div style="margin-top: clamp(48px,10vw,80px); padding-top: clamp(32px,7vw,56px); border-top: 1px solid var(--line-10);">
-      <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">What Patients Told Us</div>
-      <div style="display: flex; flex-wrap: wrap; gap: 48px;">
-        <div style="flex: 1 1 280px;">
-          <p style="font-size: 15px; color: var(--text-muted); margin: 0 0 16px;">A short patient survey surfaced three recurring asks:</p>
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Patient Survey</div>
+      <p style="font-size: 16px; line-height: 1.7; color: var(--text-muted); margin: 0 0 32px; max-width: 760px;">Short and direct questions, aimed at an average patient rather than a dental-savvy one.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px;">
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px;">
+          <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 18px;">How old are you?</div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div><div style="display: flex; justify-content: space-between; font-size: 12.5px; color: var(--text-muted); margin-bottom: 5px;"><span>31&ndash;45</span><span style="color: var(--accent); font-weight: 600;">40%</span></div><div style="height: 6px; border-radius: 999px; background: var(--line-10); overflow: hidden;"><div style="width: 40%; height: 100%; background: var(--accent);"></div></div></div>
+            <div><div style="display: flex; justify-content: space-between; font-size: 12.5px; color: var(--text-muted); margin-bottom: 5px;"><span>18&ndash;30</span><span>30%</span></div><div style="height: 6px; border-radius: 999px; background: var(--line-10); overflow: hidden;"><div style="width: 30%; height: 100%; background: var(--line-20);"></div></div></div>
+            <div><div style="display: flex; justify-content: space-between; font-size: 12.5px; color: var(--text-muted); margin-bottom: 5px;"><span>46&ndash;55</span><span>20%</span></div><div style="height: 6px; border-radius: 999px; background: var(--line-10); overflow: hidden;"><div style="width: 20%; height: 100%; background: var(--line-20);"></div></div></div>
+            <div><div style="display: flex; justify-content: space-between; font-size: 12.5px; color: var(--text-muted); margin-bottom: 5px;"><span>56&ndash;70</span><span>10%</span></div><div style="height: 6px; border-radius: 999px; background: var(--line-10); overflow: hidden;"><div style="width: 10%; height: 100%; background: var(--line-20);"></div></div></div>
+          </div>
+        </div>
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px;">
+          <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 18px;">Do you regularly go to the clinic?</div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div><div style="display: flex; justify-content: space-between; font-size: 12.5px; color: var(--text-muted); margin-bottom: 5px;"><span>Only when necessary</span><span style="color: var(--accent); font-weight: 600;">50%</span></div><div style="height: 6px; border-radius: 999px; background: var(--line-10); overflow: hidden;"><div style="width: 50%; height: 100%; background: var(--accent);"></div></div></div>
+            <div><div style="display: flex; justify-content: space-between; font-size: 12.5px; color: var(--text-muted); margin-bottom: 5px;"><span>Yes</span><span>40%</span></div><div style="height: 6px; border-radius: 999px; background: var(--line-10); overflow: hidden;"><div style="width: 40%; height: 100%; background: var(--line-20);"></div></div></div>
+            <div><div style="display: flex; justify-content: space-between; font-size: 12.5px; color: var(--text-muted); margin-bottom: 5px;"><span>No</span><span>10%</span></div><div style="height: 6px; border-radius: 999px; background: var(--line-10); overflow: hidden;"><div style="width: 10%; height: 100%; background: var(--line-20);"></div></div></div>
+          </div>
+        </div>
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 18px;">Have you ever booked a dental appointment online?</div>
+          <div><div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 40px; color: var(--accent); line-height: 1;">82%</div><div style="font-size: 12.5px; color: var(--text-muted); margin-top: 8px;">said no &mdash; 18% had</div></div>
+        </div>
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 18px;">Would you prefer to pay online?</div>
+          <div><div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 40px; color: var(--accent); line-height: 1;">56%</div><div style="font-size: 12.5px; color: var(--text-muted); margin-top: 8px;">said yes &mdash; 44% would not</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: clamp(48px,10vw,80px); padding-top: clamp(32px,7vw,56px); border-top: 1px solid var(--line-10);">
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">User Needs &rarr; Features</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 32px;">
+        <div style="flex: 1 1 320px;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">What patients asked for</div>
           <ul style="margin: 0; padding-left: 18px; color: var(--text-soft); font-size: 15px; line-height: 1.9;">
-            <li>See real-time appointment availability</li>
-            <li>Get automatic reminders before appointments</li>
-            <li>Estimate treatment costs upfront, including financing</li>
+            <li>See available time slots on a calendar, updated in real time</li>
+            <li>Automated confirmation by email or SMS, plus reminders as the date approaches</li>
+            <li>A cost calculator that estimates the full treatment, including financing options</li>
           </ul>
         </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1 1 280px;">
-          <div style="background: var(--surface); border-radius: 12px; padding: 22px; text-align: center;">
-            <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 30px; color: var(--accent);">82%</div>
-            <div style="font-size: 12.5px; color: var(--text-muted); margin-top: 6px;">had never booked a dental appointment online</div>
-          </div>
-          <div style="background: var(--surface); border-radius: 12px; padding: 22px; text-align: center;">
-            <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 30px; color: var(--accent);">56%</div>
-            <div style="font-size: 12.5px; color: var(--text-muted); margin-top: 6px;">said they'd prefer to pay online</div>
+        <div style="flex: 1 1 320px;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">What we built</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="background: var(--surface); border-radius: 12px; padding: 18px 20px; font-size: 14.5px; color: var(--text-soft);">Appointment reminders &amp; confirmation</div>
+            <div style="background: var(--surface); border-radius: 12px; padding: 18px 20px; font-size: 14.5px; color: var(--text-soft);">Treatment planning tools</div>
+            <div style="background: var(--surface); border-radius: 12px; padding: 18px 20px; font-size: 14.5px; color: var(--text-soft);">Post-operative care guidelines</div>
           </div>
         </div>
       </div>
+      <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin: 40px 0 16px;">Unique features</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+        <div style="background: var(--accent-soft); border: 1px solid var(--accent-ring); border-radius: 14px; padding: 22px; font-size: 14.5px; color: var(--text-soft); line-height: 1.6;">A visual timeline of healing progress patients can compare and track over time</div>
+        <div style="background: var(--accent-soft); border: 1px solid var(--accent-ring); border-radius: 14px; padding: 22px; font-size: 14.5px; color: var(--text-soft); line-height: 1.6;">An interactive walkthrough that shows the treatment process as it progresses</div>
+        <div style="background: var(--accent-soft); border: 1px solid var(--accent-ring); border-radius: 14px; padding: 22px; font-size: 14.5px; color: var(--text-soft); line-height: 1.6;">A calendar with reminders for follow-ups, medication, and oral hygiene routines</div>
+      </div>
     </div>
 
     <div style="margin-top: clamp(48px,10vw,80px); padding-top: clamp(32px,7vw,56px); border-top: 1px solid var(--line-10);">
-      <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">The Solution</div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 20px;">
-        <div style="background: var(--surface); border-radius: 14px; padding: 26px;">
-          <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 16px; color: var(--text-primary); margin-bottom: 10px;">Core features</div>
-          <ul style="margin: 0; padding-left: 18px; color: var(--text-soft); font-size: 14.5px; line-height: 1.8;">
-            <li>Appointment reminders &amp; confirmations</li>
-            <li>Treatment planning tools</li>
-            <li>Post-operative care guidelines</li>
-          </ul>
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Patient Profile</div>
+      <p style="font-size: 16px; line-height: 1.7; color: var(--text-muted); margin: 0 0 28px; max-width: 760px;">Understanding our users to build empathetic clinical experiences.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; background: var(--surface); border-radius: 16px; padding: clamp(22px,5vw,32px); margin-bottom: 20px;">
+        <div style="flex: 1 1 220px;">
+          <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">The Anxious Patient</div>
+          <div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 22px; color: var(--text-primary);">Sarah</div>
+          <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Marketing Executive, 28</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px;">
+            <span style="font-size: 11.5px; color: var(--text-soft); border: 1px solid var(--line-14); padding: 6px 12px; border-radius: 999px;">Tech-savvy</span>
+            <span style="font-size: 11.5px; color: var(--text-soft); border: 1px solid var(--line-14); padding: 6px 12px; border-radius: 999px;">Detail-oriented</span>
+            <span style="font-size: 11.5px; color: var(--text-soft); border: 1px solid var(--line-14); padding: 6px 12px; border-radius: 999px;">Health-conscious</span>
+            <span style="font-size: 11.5px; color: var(--text-soft); border: 1px solid var(--line-14); padding: 6px 12px; border-radius: 999px;">Anxious but proactive</span>
+          </div>
+          <div style="display: flex; gap: 28px; margin-top: 22px;">
+            <div><div style="font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.06em;">Tech fluency</div><div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">High</div></div>
+            <div><div style="font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.06em;">Preferred payment</div><div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">Apple Pay / wallet</div></div>
+          </div>
         </div>
-        <div style="background: var(--surface); border-radius: 14px; padding: 26px;">
-          <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 16px; color: var(--text-primary); margin-bottom: 10px;">Unique touches</div>
-          <ul style="margin: 0; padding-left: 18px; color: var(--text-soft); font-size: 14.5px; line-height: 1.8;">
-            <li>A visual timeline of healing progress patients can track over time</li>
-            <li>An interactive walkthrough of each treatment step</li>
-            <li>Reminders for follow-ups, medication, and oral hygiene</li>
-          </ul>
+        <div style="flex: 2 1 320px;">
+          <p style="font-family: 'Public Sans', sans-serif; font-weight: 500; font-size: clamp(17px,1.8vw,22px); line-height: 1.45; color: var(--text-primary); margin: 0 0 22px;">&ldquo;I just want to know what's happening during the procedure so I can feel in control of my recovery.&rdquo;</p>
+          <div style="font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Scenario</div>
+          <p style="font-size: 14.5px; line-height: 1.7; color: var(--text-muted); margin: 0;">Needs a dental implant, and is frightened of both the surgery and the recovery that follows.</p>
+        </div>
+      </div>
+
+      <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin: 36px 0 16px;">Empathy map</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px;">
+          <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 15px; color: var(--accent); margin-bottom: 12px;">Says</div>
+          <div style="font-size: 14px; line-height: 1.75; color: var(--text-soft);">&ldquo;How long will the pain last?&rdquo;<br>&ldquo;I need to see a clear timeline of the recovery.&rdquo;</div>
+        </div>
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px;">
+          <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 15px; color: var(--accent); margin-bottom: 12px;">Thinks</div>
+          <div style="font-size: 14px; line-height: 1.75; color: var(--text-soft);">&ldquo;I hope I don't regret doing this procedure.&rdquo;<br>&ldquo;Will my smile look natural afterward?&rdquo;</div>
+        </div>
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px;">
+          <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 15px; color: var(--accent); margin-bottom: 12px;">Does</div>
+          <div style="font-size: 14px; line-height: 1.75; color: var(--text-soft);">Searches symptoms online at 2 AM.<br>Double-checks medication times and sets strict alarms.</div>
+        </div>
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px;">
+          <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 15px; color: var(--accent); margin-bottom: 12px;">Feels</div>
+          <div style="font-size: 14px; line-height: 1.75; color: var(--text-soft);">Anxious and highly vulnerable in the clinical chair.<br>Constantly seeking reassurance from staff.</div>
+        </div>
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px;">
+          <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 15px; color: var(--accent); margin-bottom: 12px;">Goals</div>
+          <div style="font-size: 14px; line-height: 1.75; color: var(--text-soft);">Understand every step of the procedure clearly.<br>Feel in control of the healing timeline.<br>Reduce anxiety around clinical visits.</div>
+        </div>
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px;">
+          <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 15px; color: var(--accent); margin-bottom: 12px;">Pain points</div>
+          <div style="font-size: 14px; line-height: 1.75; color: var(--text-soft);">&ldquo;I don't know what they're actually doing in there.&rdquo;<br>Uncertainty about symptoms: &ldquo;Is this swelling normal?&rdquo;<br>Overwhelmed by medical terminology.</div>
         </div>
       </div>
     </div>
 
     <div style="margin-top: clamp(48px,10vw,80px); padding-top: clamp(32px,7vw,56px); border-top: 1px solid var(--line-10);">
-      <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Meet Sarah</div>
-      <div style="display: flex; flex-wrap: wrap; gap: 40px; background: var(--surface); border-radius: 16px; padding: clamp(22px,5vw,32px);">
-        <div style="flex: 1 1 200px;">
-          <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 20px; color: var(--text-primary);">Sarah, 28</div>
-          <div style="font-size: 14px; color: var(--text-muted); margin-top: 4px;">Marketing Executive</div>
-          <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 14px;">The Anxious Patient</div>
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Patient Journey</div>
+      <p style="font-size: 16px; line-height: 1.7; color: var(--text-muted); margin: 0 0 28px; max-width: 760px;">A clean, high-trust clinical pathway from login through to a confirmed booking.</p>
+      <div style="background: var(--surface); border-radius: 16px; padding: clamp(20px,5vw,30px); margin-bottom: 20px;">
+        <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 20px;">Patient</div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+            <span style="font-size: 12.5px; font-weight: 600; color: var(--bg); background: var(--accent); padding: 8px 14px; border-radius: 999px;">Patient login</span><span style="color: var(--text-faint); font-size: 12px;">&rarr;</span>
+            <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Home screen</span>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Timeline</span>
+            <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">AI Assistant</span>
+            <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Recovery</span>
+            <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Settings</span>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 12.5px; color: var(--text-muted); border: 1px solid var(--line-14); padding: 8px 14px; border-radius: 999px;">Symptom details</span>
+            <span style="font-size: 12.5px; color: var(--text-muted); border: 1px solid var(--line-14); padding: 8px 14px; border-radius: 999px;">Reminders</span>
+            <span style="font-size: 12.5px; color: var(--text-muted); border: 1px solid var(--line-14); padding: 8px 14px; border-radius: 999px;">Book visit</span>
+            <span style="font-size: 12.5px; color: var(--text-muted); border: 1px solid var(--line-14); padding: 8px 14px; border-radius: 999px;">Chat with AI</span>
+            <span style="font-size: 12.5px; color: var(--text-muted); border: 1px solid var(--line-14); padding: 8px 14px; border-radius: 999px;">Chat with specialist</span>
+            <span style="font-size: 12.5px; color: var(--text-muted); border: 1px solid var(--line-14); padding: 8px 14px; border-radius: 999px;">Upload photo</span>
+            <span style="font-size: 12.5px; color: var(--text-muted); border: 1px solid var(--line-14); padding: 8px 14px; border-radius: 999px;">Care guide</span>
+            <span style="font-size: 12.5px; color: var(--text-muted); border: 1px solid var(--line-14); padding: 8px 14px; border-radius: 999px;">Schedule video call</span>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+            <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Book specialist</span><span style="color: var(--text-faint); font-size: 12px;">&rarr;</span>
+            <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Check calendar</span><span style="color: var(--text-faint); font-size: 12px;">&rarr;</span>
+            <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Payment method</span><span style="color: var(--text-faint); font-size: 12px;">&rarr;</span>
+            <span style="font-size: 12.5px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 8px 14px; border-radius: 999px;">Booking confirmed</span>
+          </div>
         </div>
-        <div style="flex: 3 1 320px;">
-          <p style="font-size: 16px; line-height: 1.7; color: var(--text-body); margin: 0 0 20px; font-style: italic;">&ldquo;I just want to know what's happening during the procedure so I can feel in control of my recovery.&rdquo;</p>
-          <p style="font-size: 14.5px; line-height: 1.7; color: var(--text-muted); margin: 0;">Sarah needs a dental implant and is anxious about the surgery and recovery. She wants to understand every step, feel in control of her healing timeline, and worry less about her clinical visits.</p>
+      </div>
+      <div style="background: var(--surface); border-radius: 16px; padding: clamp(20px,5vw,30px);">
+        <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 20px;">Dental specialist</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <span style="font-size: 12.5px; font-weight: 600; color: var(--bg); background: var(--accent); padding: 8px 14px; border-radius: 999px;">Dentist login</span><span style="color: var(--text-faint); font-size: 12px;">&rarr;</span>
+          <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Dashboard</span><span style="color: var(--text-faint); font-size: 12px;">&rarr;</span>
+          <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Tasks &amp; reminders</span><span style="color: var(--text-faint); font-size: 12px;">&rarr;</span>
+          <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Patient directory</span><span style="color: var(--text-faint); font-size: 12px;">&rarr;</span>
+          <span style="font-size: 12.5px; color: var(--text-soft); background: var(--line-08); padding: 8px 14px; border-radius: 999px;">Clinical patient view</span><span style="color: var(--text-faint); font-size: 12px;">&rarr;</span>
+          <span style="font-size: 12.5px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 8px 14px; border-radius: 999px;">Service done</span>
         </div>
       </div>
     </div>
 
     <div style="margin-top: clamp(48px,10vw,80px); padding-top: clamp(32px,7vw,56px); border-top: 1px solid var(--line-10);">
-      <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">How It Comes Together</div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-        <div style="background: var(--surface); border-radius: 14px; padding: 26px;">
-          <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 15px; color: var(--text-primary); margin-bottom: 10px;">Patient path</div>
-          <div style="font-size: 14px; line-height: 1.9; color: var(--text-soft);">Log in &rarr; Home &rarr; Check symptoms or chat with the AI assistant &rarr; Book a specialist &rarr; Confirm &amp; pay &rarr; Track recovery</div>
-        </div>
-        <div style="background: var(--surface); border-radius: 14px; padding: 26px;">
-          <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 15px; color: var(--text-primary); margin-bottom: 10px;">Dentist path</div>
-          <div style="font-size: 14px; line-height: 1.9; color: var(--text-soft);">Log in &rarr; Dashboard &rarr; Manage patients &amp; tasks &rarr; Plan treatment &rarr; Mark visit complete</div>
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Design System</div>
+      <p style="font-family: 'Public Sans', sans-serif; font-weight: 500; font-size: clamp(18px,2vw,24px); line-height: 1.45; color: var(--text-primary); margin: 0 0 20px; max-width: 820px;">The &lsquo;soft-touch&rsquo; interface.</p>
+      <p style="font-size: 16px; line-height: 1.75; color: var(--text-body); margin: 0 0 36px; max-width: 820px;">Rooted in modern-corporate clinical serenity, the visual language is built to feel calm, reliable, and professional. It prioritises clarity and reassurance, acting as a quiet companion rather than a complex tool &mdash; generous whitespace, soft translucency, and high legibility. Spacing follows an 8px base unit: section gaps are wide to group content, while card padding stays generous so density never overwhelms.</p>
+      <div style="display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 36px;">
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 32px; height: 32px; border-radius: 9px; background: #2563EB; display: block;"></span><span style="font-size: 13px; color: var(--text-muted);">Primary Blue<br><span style="color: var(--text-faint);">#2563EB</span></span></div>
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 32px; height: 32px; border-radius: 9px; background: #F8F9FF; border: 1px solid var(--line-14); display: block;"></span><span style="font-size: 13px; color: var(--text-muted);">Surface<br><span style="color: var(--text-faint);">#F8F9FF</span></span></div>
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 32px; height: 32px; border-radius: 9px; background: #EFF4FF; border: 1px solid var(--line-14); display: block;"></span><span style="font-size: 13px; color: var(--text-muted);">Surface Container<br><span style="color: var(--text-faint);">#EFF4FF</span></span></div>
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 32px; height: 32px; border-radius: 9px; background: #059669; display: block;"></span><span style="font-size: 13px; color: var(--text-muted);">Success / Healing<br><span style="color: var(--text-faint);">#059669</span></span></div>
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 32px; height: 32px; border-radius: 9px; background: #1A1C1E; border: 1px solid var(--line-14); display: block;"></span><span style="font-size: 13px; color: var(--text-muted);">On-Surface<br><span style="color: var(--text-faint);">#1A1C1E</span></span></div>
+      </div>
+      <div style="background: #F8F9FF; border-radius: 16px; padding: clamp(24px,5vw,40px); font-family: 'Poppins', sans-serif;">
+        <div style="font-size: 11px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 24px;">Typography &mdash; Poppins</div>
+        <div style="display: flex; flex-direction: column; gap: 22px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; border-bottom: 1px solid #E2E8F0; padding-bottom: 18px;">
+            <div style="font-size: 10.5px; font-weight: 600; color: #94a3b8; letter-spacing: 0.1em; width: 68px;">DISPLAY</div>
+            <div style="font-size: clamp(28px,4vw,44px); font-weight: 700; color: #1A1C1E; letter-spacing: -0.02em; line-height: 1.1;">Clinical Serenity</div>
+            <div style="font-size: 11.5px; color: #94a3b8; margin-left: auto;">48/56 &middot; Bold &middot; &minus;2%</div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; border-bottom: 1px solid #E2E8F0; padding-bottom: 18px;">
+            <div style="font-size: 10.5px; font-weight: 600; color: #94a3b8; letter-spacing: 0.1em; width: 68px;">HEADLINE</div>
+            <div style="font-size: clamp(21px,2.6vw,30px); font-weight: 600; color: #1A1C1E; letter-spacing: -0.01em;">A breathable layout</div>
+            <div style="font-size: 11.5px; color: #94a3b8; margin-left: auto;">32/40 &middot; Semibold &middot; &minus;1%</div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; border-bottom: 1px solid #E2E8F0; padding-bottom: 18px;">
+            <div style="font-size: 10.5px; font-weight: 600; color: #94a3b8; letter-spacing: 0.1em; width: 68px;">TITLE</div>
+            <div style="font-size: 19px; font-weight: 500; color: #1A1C1E;">Assisted Recovery Companion</div>
+            <div style="font-size: 11.5px; color: #94a3b8; margin-left: auto;">20/28 &middot; Medium</div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline;">
+            <div style="font-size: 10.5px; font-weight: 600; color: #94a3b8; letter-spacing: 0.1em; width: 68px;">BODY</div>
+            <div style="font-size: 15px; font-weight: 400; color: #475569; line-height: 1.6; flex: 1 1 300px;">The technology feels like a supportive, quiet companion rather than a complex tool.</div>
+            <div style="font-size: 11.5px; color: #94a3b8; margin-left: auto;">16/24 &middot; Regular</div>
+          </div>
         </div>
       </div>
     </div>
 
     <div style="margin-top: clamp(48px,10vw,80px); padding-top: clamp(32px,7vw,56px); border-top: 1px solid var(--line-10);">
-      <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Design System</div>
-      <p style="font-size: 16px; line-height: 1.75; color: var(--text-body); margin: 0 0 28px; max-width: 720px;">A "soft-touch" visual language built for clinical calm: generous whitespace, high legibility, and a palette meant to feel reassuring rather than sterile. Typeset in Poppins.</p>
-      <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-        <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 28px; height: 28px; border-radius: 8px; background: #2563EB; display: block;"></span><span style="font-size: 13px; color: var(--text-muted);">Primary Blue<br><span style="color: var(--text-faint);">#2563EB</span></span></div>
-        <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 28px; height: 28px; border-radius: 8px; background: #F8F9FF; border: 1px solid var(--line-14); display: block;"></span><span style="font-size: 13px; color: var(--text-muted);">Surface<br><span style="color: var(--text-faint);">#F8F9FF</span></span></div>
-        <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 28px; height: 28px; border-radius: 8px; background: #EFF4FF; border: 1px solid var(--line-14); display: block;"></span><span style="font-size: 13px; color: var(--text-muted);">Surface Container<br><span style="color: var(--text-faint);">#EFF4FF</span></span></div>
-        <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 28px; height: 28px; border-radius: 8px; background: #059669; display: block;"></span><span style="font-size: 13px; color: var(--text-muted);">Success / Healing<br><span style="color: var(--text-faint);">#059669</span></span></div>
-        <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 28px; height: 28px; border-radius: 8px; background: #1A1C1E; display: block;"></span><span style="font-size: 13px; color: var(--text-muted);">On-Surface<br><span style="color: var(--text-faint);">#1A1C1E</span></span></div>
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Prototype</div>
+      <p style="font-size: 16px; line-height: 1.7; color: var(--text-muted); margin: 0 0 32px; max-width: 760px;">The interactive prototype is available on request.</p>
+      <div style="background: var(--surface); border-radius: 20px; padding: clamp(32px,7vw,56px); display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 460px;">
+        <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; margin-bottom: 22px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        </div>
+        <div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 19px; color: var(--text-primary); margin-bottom: 8px;">Interactive Prototype</div>
+        <sc-if value="{{ !protoUnlocked }}" hint-placeholder-val="{{ true }}">
+          <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 24px;">Sign in to view the working DailyDent prototype.</p>
+          <form onSubmit="{{ onProtoSubmit }}" style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+            <input type="text" name="username" placeholder="Username" required="{{ true }}" style="background: var(--bg); border: 1px solid var(--line-14); border-radius: 8px; padding: 13px 15px; color: var(--text-primary); font-size: 14px; font-family: 'Public Sans', sans-serif;">
+            <input type="password" name="password" placeholder="Password" required="{{ true }}" style="background: var(--bg); border: 1px solid var(--line-14); border-radius: 8px; padding: 13px 15px; color: var(--text-primary); font-size: 14px; font-family: 'Public Sans', sans-serif;">
+            <button type="submit" style="background: var(--accent); color: var(--bg); border: none; font-weight: 600; font-size: 15px; padding: 13px 28px; border-radius: 999px; cursor: pointer; margin-top: 6px;" style-hover="background: var(--accent-hover);">Enter Prototype</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ protoUnlocked }}" hint-placeholder-val="{{ false }}">
+          <div style="width: 44px; height: 44px; border-radius: 999px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; margin: 4px 0 16px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0;">Access granted. The prototype embed goes here.</p>
+        </sc-if>
       </div>
     </div>
 
     <div style="margin-top: clamp(48px,10vw,80px); padding-top: clamp(32px,7vw,56px); border-top: 1px solid var(--line-10);">
-      <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Outcome</div>
-      <p style="font-size: 18px; line-height: 1.75; color: var(--text-body); margin: 0; max-width: 720px;">The result is a companion app that gives patients a clear, calm view of their treatment — from booking through recovery — while giving dental teams better tools to plan care and stay on top of every patient's journey.</p>
+      <div style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">Outcome</div>
+      <p style="font-size: 18px; line-height: 1.75; color: var(--text-body); margin: 0; max-width: 780px;">A companion app that gives patients a clear, calm view of their treatment from booking through recovery, while giving dental teams better tools to plan care and stay on top of every patient's journey.</p>
     </div>
 
     <div style="margin-top: clamp(56px,12vw,100px); padding-top: 40px; border-top: 1px solid var(--line-10); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center;">
-      <a href="index.html#contact" style="color: var(--text-primary); text-decoration: none; font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 20px;">Interested in the details? Let's talk &rarr;</a>
+      <a href="index.html#contact" style="color: var(--text-primary); text-decoration: none; font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 20px;">Interested in the details? Let's talk &rarr;</a>
       <span style="font-size: 13px; color: var(--text-faint);">&copy; 2026 K Balaji Reddy</span>
     </div>
   </div>
+
+  <sc-if value="{{ deckModalOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeDeckModal }}" style="position: fixed; inset: 0; background: oklch(0 0 0 / 0.6); display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 100;">
+      <div onClick="{{ stopPropagation }}" style="background: var(--surface); border-radius: 16px; padding: clamp(28px,6vw,40px); max-width: 380px; width: 100%; position: relative;">
+        <button onClick="{{ closeDeckModal }}" aria-label="Close" style="position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--text-faint); font-size: 20px; cursor: pointer; line-height: 1; padding: 4px;">&times;</button>
+        <div style="font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 19px; color: var(--text-primary); margin-bottom: 8px;">Password protected</div>
+        <sc-if value="{{ deckError }}" hint-placeholder-val="{{ false }}">
+          <p style="font-size: 13.5px; line-height: 1.6; color: oklch(0.7 0.18 25); margin: 0 0 18px;">Incorrect password. Try again.</p>
+        </sc-if>
+        <sc-if value="{{ !deckError }}" hint-placeholder-val="{{ true }}">
+          <p style="font-size: 13.5px; line-height: 1.6; color: var(--text-muted); margin: 0 0 18px;">Enter the password to view the full case study deck.</p>
+        </sc-if>
+        <form onSubmit="{{ onDeckPasswordSubmit }}" style="display: flex; flex-direction: column; gap: 12px;">
+          <input type="password" name="deckPassword" placeholder="Password" required="{{ true }}" autoFocus="{{ true }}" style="background: var(--bg); border: 1px solid var(--line-14); border-radius: 8px; padding: 13px 15px; color: var(--text-primary); font-size: 14px; font-family: 'Public Sans', sans-serif;">
+          <button type="submit" style="background: var(--accent); color: var(--bg); border: none; font-weight: 600; font-size: 15px; padding: 13px 28px; border-radius: 999px; cursor: pointer; font-family: 'Public Sans', sans-serif;" style-hover="background: var(--accent-hover);">Unlock</button>
+        </form>
+      </div>
+    </div>
+  </sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { theme: 'dark' };
+  state = { theme: 'dark', protoUnlocked: false, deckModalOpen: false, deckError: false };
   componentDidMount() {
     const saved = localStorage.getItem('balaji-portfolio-theme');
     if (saved === 'light' || saved === 'dark') this.setState({ theme: saved });
@@ -229,6 +443,23 @@ class Component extends DCLogic {
         const next = this.state.theme === 'dark' ? 'light' : 'dark';
         localStorage.setItem('balaji-portfolio-theme', next);
         this.setState({ theme: next });
+      },
+      protoUnlocked: this.state.protoUnlocked,
+      onProtoSubmit: (e) => { e.preventDefault(); this.setState({ protoUnlocked: true }); },
+      deckModalOpen: this.state.deckModalOpen,
+      deckError: this.state.deckError,
+      openDeckModal: () => this.setState({ deckModalOpen: true, deckError: false }),
+      closeDeckModal: () => this.setState({ deckModalOpen: false, deckError: false }),
+      stopPropagation: (e) => e.stopPropagation(),
+      onDeckPasswordSubmit: (e) => {
+        e.preventDefault();
+        const pw = e.target.deckPassword.value;
+        if (pw === 'dentalapp') {
+          window.open('assets/dailydent-case-study.pdf', '_blank', 'noopener,noreferrer');
+          this.setState({ deckModalOpen: false, deckError: false });
+        } else {
+          this.setState({ deckError: true });
+        }
       }
     };
   }
